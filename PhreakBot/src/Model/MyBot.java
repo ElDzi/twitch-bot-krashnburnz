@@ -1264,4 +1264,10 @@ public class MyBot extends PircBot implements Observer{
 	public String getPointsName() {
 		return my_points_name;
 	}
+	
+	@Override
+    protected void onConnect() {
+		this.sendRawLine("CAP REQ :twitch.tv/membership");
+		System.out.println("Attempting to get membership");
+	}
 }
